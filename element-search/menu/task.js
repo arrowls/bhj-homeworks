@@ -1,16 +1,16 @@
 const menus = document.querySelectorAll('.menu_main > li');
-const menusToOpen = [...menus].filter((menu) => menu.querySelector('ul'));  // выбираем меню с выпадающим списком
+const menusToOpen = [...menus].filter((menu) => menu.querySelector('ul'));  
 let openedMenu;
 
 menusToOpen.forEach((menu) => {
     menu.addEventListener('click', (evt) => {
-        evt.preventDefault();                                               // отменяем переход по ссылке 
+        if (evt.target == evt.currentTarget.firstElementChild) {
+            evt.preventDefault();
+        }                                           
         menu.querySelector('ul').classList.toggle('menu_active');
-        if (openedMenu && openedMenu != evt.target) {                       // если клик был не по открытому меню -
-            openedMenu.querySelector('ul').classList.remove('menu_active'); // ...скрываем его
+        if (openedMenu && openedMenu !== evt.target.parentNode) {                      
+            openedMenu.querySelector('ul').classList.remove('menu_active'); 
         }
-        openedMenu = menu;                                                  // ... и записываем в переменную последний клик
+        openedMenu = menu;                                                  
     });
-});                                                                         // код так же работает и для нескольких меню
-
-// спасибо за вашу работу! положительные отзывы серьезно мотивируют учиться)
+});                                                                         
