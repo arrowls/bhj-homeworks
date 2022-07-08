@@ -1,13 +1,66 @@
+@keyframes flashy {
+    0% {
+        color: white;
+    }
+    50% {
+        color: rgba(128, 128, 128, 0.7);
+    }
+    100% {
+        color: white;
+    }
+}
+
 .symbol {
-  font-size: 50px;
+    font-size: 50px;
 }
-
 .symbol_correct {
-  color: green;
+    color: green;
 }
 
-.word_incorrect {
-  background: red;
-  color: #fff;
+div.word_incorrect {
+    background: rgba(255, 0, 0, 0.5);
+    transition: 0.1s;
 }
-
+.symbol_active {
+    border-bottom: 2px solid black;
+}
+.timer {
+    height: 10px;
+}
+.popup {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.popup::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7);
+    position: inherit;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+div.popup-visible {
+    visibility: visible;
+}
+.message {
+    font-size: 70px;
+    color: white;
+    text-align: center;
+}
+.press-space {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    animation: flashy 2s ease infinite;
+}
