@@ -29,7 +29,7 @@ function checkParents(element) {    // проверяет вверх по вло
         return;
     }
     const parentElements = getParents(element);     // если нет - получаем все чекбоксы выше и работаем дальше
-    if (checkSiblings(element)) {                   // если все соседние чекбоксы нажаты так же
+    if (checkSiblings(element)) {                   // если все соседние чекбоксы нажаты одинаково
         parentElements[0].checked = element.checked;// родительский чекбокс, очевидно, будет иметь такое же значение
         parentElements[0].indeterminate = false;
         checkParents(parentElements[0]);            // так как не все ЧБ могут быть нажаты на следующем уровне - нужно их проверить
