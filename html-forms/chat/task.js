@@ -13,7 +13,7 @@ const botMessages = [
 // C O N F I G
 
 const BOT_RESPONCE_MAX_TIME = 1000; // ms
-const MS_TO_WAIT = 10000; // 30 sec
+const MS_TO_WAIT = 30000; // 30 sec
 
 // D O M  T H I N G S
 
