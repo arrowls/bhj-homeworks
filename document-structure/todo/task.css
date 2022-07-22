@@ -1,15 +1,62 @@
+@keyframes add-task {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+body {
+  background-color: rgb(22, 22, 22);
+  color: white;
+  min-height: 100vh;
+}
 button {
   margin: 0 !important;
 }
 
+.preloader__logo {
+  background-color: rgba(100,100,100,0.5);
+  width: 500px;
+  position: relative;
+
+  z-index: 200;
+}
+svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.preloader {
+  z-index: 100; 
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background-color: rgba(0,0,0,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card {
   width: 600px;
+  transition: 0.2s;
+  border-radius: 10px;
+  background-color: rgb(38, 38, 38);
 }
-
+.content {
+  background-color: inherit;
+  height: 100%;
+  display: flex;
+}
 .header {
   margin-bottom: 20px;
+  color: black;
 }
-
 .tasks__control {
   display: flex;
   justify-content: space-between;
@@ -20,16 +67,19 @@ button {
   width: 80%;
   padding: 10px 20px;
   font-family: Golos, Arial, sans-serif;
-  border: 1px solid #e2e2e2;
+  border: 1px solid rgb(53, 53, 53);
   box-sizing: border-box;
+  background-color: inherit;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .tasks__add {
   font-family: Golos, Arial, sans-serif;
   color: #fff;
-  background-color: #06f;
+  background-color: rgb(86, 168, 215);
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -47,6 +97,7 @@ button {
 }
 
 .task {
+  animation: add-task 0.2s ease;
   display: flex;
   justify-content: space-between;
   padding: 2px 10px;
@@ -58,15 +109,15 @@ button {
 .tasks__list {
   margin-top: 10px;
 }
-
 .task__title {
   flex-grow: 1;
-  padding: 10px 5px;
+  padding: 10px 15px;
 }
 
 .task__remove {
-  color: red;
+  color: white;
   font-size: 30px;
   text-decoration: none;
   cursor: pointer;
 }
+
