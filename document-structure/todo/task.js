@@ -9,9 +9,9 @@ const REMOVE_TASK_ANIMATION = [
         opacity: 0.5,
         backgroundColor: 'rgb(38, 38, 38)',
     },
-]
+];
 
-// D O M 
+// D O M
 
 const input = document.querySelector('.tasks__input');
 const tasksList = document.querySelector('.tasks__list');
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
     checkStorage();
 });
 
-addBtn.addEventListener('click', evt => {
+addBtn.addEventListener('click', (evt) => {
     evt.preventDefault();
     if (input.value) {
         renderTask(input.value);
@@ -39,11 +39,11 @@ addBtn.addEventListener('click', evt => {
 function checkStorage() {
     if (localStorage.tasks) {
         const tasks = JSON.parse(localStorage.tasks);
-        tasks.forEach(task => {
+        tasks.forEach((task) => {
             renderTask(task);
         });
     }
-};
+}
 
 function addToStorage(text) {
     if (
@@ -55,15 +55,15 @@ function addToStorage(text) {
     const currentStorage = JSON.parse(localStorage.getItem('tasks'));
     currentStorage.push(text);
     localStorage.tasks = JSON.stringify(currentStorage);
-};
+}
 
 function removeFromStorage(text) {
     let currentStorage = JSON.parse(localStorage.getItem('tasks'));
-    currentStorage = currentStorage.filter(task => task != text);
+    currentStorage = currentStorage.filter((task) => task != text);
     localStorage.tasks = JSON.stringify(currentStorage);
-};
+}
 
-// T A S K    O P E R A T I O N S 
+// T A S K    O P E R A T I O N S
 
 function renderTask(text) {
     const taskContainer = document
@@ -74,20 +74,17 @@ function renderTask(text) {
     closeBtn.addEventListener('click', removeTask);
     taskText.innerHTML = text;
     tasksList.appendChild(taskContainer);
-};
+}
 
 function removeTask(evt) {
-    evt.target.parentElement.animate(
-        REMOVE_TASK_ANIMATION,
-        300
-    );
+    evt.target.parentElement.animate(REMOVE_TASK_ANIMATION, 300);
     setTimeout(() => {
         evt.target.parentElement.remove();
     }, 300);
     removeFromStorage(
         evt.target.parentElement.querySelector('.task__title').textContent
     );
-};
+}
 
 // A N I M A T I O N
 
@@ -117,7 +114,7 @@ function startPreload() {
         PRELOAD_ANIMATION_OPTIONS
     );
     preloadContainer.animate(
-        { backgroundColor: 'rgba(0, 0, 0, 0)' },
+        { backgroundColor: 'rgba(0, 0, 0, 0)'},
         PRELOAD_ANIMATION_OPTIONS
     );
 
@@ -125,5 +122,5 @@ function startPreload() {
         logo.remove();
         preloadContainer.remove();
         originalLogo.style.visibility = 'visible';
-    }, 1750);
+    }, PRELOAD_ANIMATION_OPTIONS.duration);
 }
