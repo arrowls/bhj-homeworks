@@ -53,7 +53,7 @@ function addToCart(product) {
             !cart.children.length &&
                 cartContainer.classList.remove('cart-active');
         });
-    animate(product.querySelector('.product__image'), cart.lastElementChild);
+    animateCart(product.querySelector('.product__image'), cart.lastElementChild);
 }
 function isInCart(product) {
     const productsInCart = cart.querySelectorAll('.cart__product');
@@ -61,7 +61,7 @@ function isInCart(product) {
         (cartProduct) => cartProduct.dataset.id == product.dataset.id
     );
 }
-function animate(from, to) {
+function animateCart(from, to) {
     const fromCoords = from.getBoundingClientRect();
     const toCoords = to.getBoundingClientRect();
     to.animate(
