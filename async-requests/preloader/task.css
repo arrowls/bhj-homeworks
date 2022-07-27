@@ -14,8 +14,9 @@ body {
 }
 
 .loader {
-  width: 100px;
+  width: 50px;
   display: none;
+  margin-inline: auto;
 }
 .loader_active {
   display: block;

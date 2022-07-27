@@ -9,3 +9,23 @@ body {
 .poll__title {
   margin-bottom: 20px;
 }
+.poll__result {
+  height: 40px;
+  background-color: rgb(198, 198, 198);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.result__name, .result__count {
+  z-index: 100;
+}
+.result__progress { 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+} 
