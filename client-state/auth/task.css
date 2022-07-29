@@ -41,7 +41,13 @@
   display: none;
 }
 
+#exit {
+  margin: 0;
+  margin-left: auto;
+}
+
 .welcome_active {
-  display: block;
+  display: flex;
+  align-items: baseline;
   text-align: center;
 }
